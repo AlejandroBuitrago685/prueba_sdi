@@ -1,0 +1,154 @@
+.product-list-container {
+  padding: 20px;
+}
+
+// Barra de búsqueda
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .search-input-wrapper {
+    position: relative;
+    width: 70%;
+    
+    .search-icon {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      width: 17px;  
+      height: 17px;  
+    }
+
+    .search-input {
+      width: 45%;
+      padding: 10px 10px 10px 40px; 
+      border-radius: 25px;
+      border: none;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      font-size: 12px;
+      outline: none;
+      color: #6d6d6d;
+      transition: all 0.2s ease-in-out;
+
+      &:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+    }
+  }
+
+  .create-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 7px 11px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    .add-icon {
+      margin-right: 10px;
+    }
+  }
+}
+
+// Tabla
+.product-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  td {
+    color: #7c7c7c;
+  }
+
+  th {
+    background-color: #dadada;
+  }
+
+  .sort-icon {
+    font-size: 14px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  .product-cell {
+    display: flex;
+    align-items: center;
+  }
+
+  .product-image {
+    width: 105px;
+    height: 70px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+
+  .actions-button {
+    background: none;
+    border: none;
+    margin-left: 20%;
+    cursor: pointer;
+  }
+
+  thead tr:first-child th:first-child {
+    border-top-left-radius: 15px;
+  }
+
+  thead tr:first-child th:last-child {
+    border-top-right-radius: 15px;
+  }
+
+  tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+  }
+
+  tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+  }
+}
+
+// Menu desplegable
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 150px;
+  padding: 10px;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 8px;
+      cursor: pointer;
+      &:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+}
+
+// Mensaje final de lista
+.final-indicator {
+  text-align: center;
+  padding: 20px;
+  color: #6d6d6d;
+  font-weight: bold;
+}

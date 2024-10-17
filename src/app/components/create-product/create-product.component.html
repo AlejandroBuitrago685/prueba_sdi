@@ -1,0 +1,61 @@
+<p-toast></p-toast>
+<div class="create-product-container">
+    <div class="title-container">
+        <span>Crear producto</span>
+    </div>
+
+    <form [formGroup]="createProductForm" (ngSubmit)="onSubmit()">
+        <!-- Nombre del producto -->
+        <div class="form-group">
+            <label for="productName">Nombre del producto</label>
+            <input id="productName" formControlName="title" placeholder="Escribe el nombre" class="input-control"
+                type="text">
+        </div>
+
+        <!-- Fecha de fabricación y Precio -->
+        <div class="combo-input">
+            <div class="form-group">
+                <label for="manufactureDate">Fecha de fabricación</label>
+                <input id="manufactureDate" formControlName="manufactureDate" class="input-control" type="date">
+            </div>
+
+            <div class="form-group price-group">
+                <label for="price">Precio</label>
+                <div class="price-input-container">
+                    <input id="price" formControlName="price" class="input-control price-input" type="number" min="0"
+                        step=".01" placeholder="00">
+                    <span class="currency-symbol">€</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Seleccionar categoría -->
+        <div class="form-group">
+            <label for="category">Seleccionar categoría</label>
+            <p-dropdown formControlName="category"
+                [style]="{'width':'900px', 'border-radius':'30px', 'padding': '0px 0px 0px 4px'}" [options]="categories"
+                optionLabel="name" [filter]="true" filterBy="name" placeholder="Buscar" />
+        </div>
+
+        <!-- Foto del producto -->
+        <label for="category">Foto del producto</label>
+        <div class="image-upload-container">
+            <div class="image-upload">
+              <!-- Imagen que abre el input file -->
+              <label for="file-input">
+                <img id="image-preview" src="assets/icons/placeholder.svg" alt="Subir imagen" class="image-placeholder">
+              </label>
+          
+              <!-- Input de tipo file, oculto -->
+              <input id="file-input" type="file" (change)="onFileSelected($event)" style="display: none;" />
+          
+              <!-- Botón que también abre el input file -->
+              <button type="button" class="upload-button" (click)="triggerFileInput()">+</button>
+            </div>
+          </div>                 
+
+        <!-- Botón para crear producto -->
+        <button class="submit-button" type="submit" [disabled]="createProductForm.invalid">Crear producto</button>
+    </form>
+</div>

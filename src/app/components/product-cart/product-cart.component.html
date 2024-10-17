@@ -1,0 +1,74 @@
+
+<div class="category-filter">
+  <h2>Categorías:</h2>
+  
+  <!-- Opción para borrar el filtro -->
+  <span (click)="filterByCategory(null)" 
+        [class.active]="selectedCategory === null"
+        class="category-chip">
+    Todos
+  </span>
+
+  <!-- Chips de categorías -->
+  <span *ngFor="let category of categories" 
+        (click)="filterByCategory(category)"
+        [class.active]="selectedCategory === category"
+        class="category-chip">
+    {{ category }}
+  </span>
+</div>
+
+<div class="product-cart-container">
+  
+  <!-- Lista de Productos -->
+  <div class="product-list">
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <img [src]="product.image" alt="{{ product.title }}" class="product-image">
+      <div class="product-details">
+        <div class="div1"> <h3 class="product-title">{{ product.title | truncate:30 }}</h3></div>
+        <div class="div2"> <p class="product-price">{{ product.price }} €</p></div>
+        <div class="div3"> <button class="add-button" (click)="addToCart(product)">Añadir</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carrito -->
+  <div class="cart">
+    <h1>Carrito</h1>
+
+    <div class="cart-item" *ngFor="let item of cart; let i = index">
+      <img [src]="item.image" alt="{{ item.title }}" class="cart-item-image">
+      <div class="cart-item-details">
+        <p>{{ item.title }}</p>
+      </div>
+
+      <div class="cart-item-price">
+        <button (click)="removeFromCart(item)" class="remove-item"><img src="assets/icons/trash.svg"
+            alt="borrar"></button>
+          
+        <!-- Controles de cantidad -->
+        <div class="cart-item-quantity">
+          <button (click)="decreaseQuantity(i)">-</button>
+          <input type="text" [(ngModel)]="item.quantity" readonly>
+          <button (click)="increaseQuantity(i)">+</button>
+        </div>
+        <span>
+          {{ item.price }} €
+        </span>
+      </div>
+    </div>
+
+    <!-- Total y acciones -->
+    <div class="cart-total">
+      <button class="checkout-button">
+        COBRAR
+        <span class="cart-info">
+          <span class="product-count">{{ totalItems }} productos</span> | {{ getTotalPrice() }} €
+        </span>
+      </button>
+      <button *ngIf="totalItems > 0" class="clear-button" (click)="clearCart()">
+        VACIAR CARRITO
+      </button>
+    </div>
+  </div>
+</div>

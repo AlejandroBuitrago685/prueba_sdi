@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi-Bold';
+  src: url('/assets/fonts/Satoshi-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Satoshi', sans-serif;
+}
+
+h3, h2 , h1, th {
+  font-family: 'Satoshi-Bold', sans-serif !important;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Satoshi', sans-serif;
+}

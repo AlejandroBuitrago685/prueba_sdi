@@ -1,0 +1,55 @@
+<p-toast />
+<p-confirmDialog>
+</p-confirmDialog>
+
+
+<div class="product-list-container">
+    <div class="search-bar">
+        <!-- Buscador -->
+        <div class="search-input-wrapper" *ngIf="role == 'admin'">
+            <img src="assets/icons/lupa.svg" alt="Buscar" class="search-icon">
+            <input type="text" placeholder="Busca un producto" class="search-input" [(ngModel)]="searchTerm">
+        </div>
+        <!-- Botón de creación -->
+        <button class="create-button" *ngIf="adminCanCreate()" (click)="createProduct()">
+            <img src="assets/icons/plus.svg" alt="Crear" class="add-icon"> Crear producto
+        </button>
+    </div>
+
+    <!-- Tabla -->
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>Acciones</th>
+                <th>Producto <img src="assets/icons/sort.svg" alt="Ordenar" class="sort-icon"></th>
+                <th>Categoría <img src="assets/icons/sort.svg" alt="Ordenar" class="sort-icon"></th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of getFilteredProducts(); let i = index">
+                <td>
+                    <button class="actions-button" (click)="toggleMenu(i)">
+                        <img src="assets/icons/actions.svg" alt="Acciones">
+                    </button>
+                    <!-- Menú desplegable -->
+                    <div *ngIf="menuVisibleIndex === i && adminCanDelete()" class="dropdown-menu">
+                        <ul>
+                            <li (click)="confirm(product)">Eliminar</li>
+                        </ul>
+                    </div>
+                </td>
+                <td class="product-cell">
+                    <img [src]="product.image" alt="{{product.title}}" class="product-image">
+                    <span>{{ product.title }}</span>
+                </td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.price }} €</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Mensaje de final del listado -->
+    <div *ngIf="allProductsLoaded" class="final-indicator">
+        Parece que has llegado al final 🙃
+    </div>
+</div>

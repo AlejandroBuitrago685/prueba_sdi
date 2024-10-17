@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "username": "adminMadrid",
+      "email": "adminmadrid@sdi.es",
+      "password": "admin123",
+      "role": "admin",
+      "city": "Madrid",
+      "country": "España",
+      "domain": "sdi.es"
+    },
+    {
+      "id": 2,
+      "username": "adminLogrono",
+      "email": "adminlogrono@sdi.es",
+      "password": "adminlogrono123",
+      "role": "admin",
+      "city": "Logroño",
+      "country": "España",
+      "domain": "sdi.es"
+    },
+    {
+      "id": 3,
+      "username": "regularUser",
+      "email": "user@gmail.es",
+      "password": "user123",
+      "role": "user",
+      "city": "Barcelona",
+      "country": "España",
+      "domain": "gmail.es"
+    }
+  ]
+  

@@ -1,0 +1,155 @@
+.create-product-container {
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+
+  .title-container {
+    border-bottom: 1px solid #dadada;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px 5px 0px;
+
+    span {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+
+  .combo-input {
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+    flex-direction: row;
+  }
+
+  .form-group {
+    width: 30%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .input-control {
+      padding: 8px 16px;
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+
+      &:focus {
+        border-color: #007bff;
+      }
+    }
+
+    .price-input {
+      padding-right: 30px; 
+      width: 8%;
+    }
+
+    .date-input {
+      width: 100%;
+    }
+
+    .currency-symbol {
+      margin-left: 10px;
+      font-size: 20px;
+      color: #4d71ff;
+    }
+  }
+
+  .price-group {
+    width: 100%; 
+    position: relative;
+  }
+
+  .price-input-container {
+    position: relative; 
+    display: flex;
+    align-items: center; 
+  }
+
+  .submit-button {
+    padding: 6px 30px;
+    font-size: 13px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-bottom: 50px;
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  .image-upload-container {
+    display: flex;
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .image-upload {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-placeholder {
+    width: 35px;
+    height: 35px;
+    opacity: 0.5;
+  }
+  
+  #file-input {
+    display: none;
+  }
+  
+  .upload-button {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    width: 40px;
+    height: 40px;
+    background-color: #4d71ff;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .upload-button:hover {
+    background-color: #3c5bcc;
+  }
+  
+}

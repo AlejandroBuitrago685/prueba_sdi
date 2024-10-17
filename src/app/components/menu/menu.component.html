@@ -1,0 +1,19 @@
+<nav class="menu">
+    <ul class="menu-left">
+      <li><a (click)="navigate()">Listado</a></li>
+      
+      <!-- Opción de Administración, visible solo para administradores -->
+      <li *ngIf="isAdmin"><a routerLink="/admin">Administrador</a></li>
+    </ul>
+    
+    <ul class="menu-right">
+      <!-- Nombre de usuario con desplegable para cerrar sesión -->
+      <li class="dropdown">
+        <a href="javascript:void(0)">{{ username }} &#x25BC;</a>
+        <ul class="dropdown-content">
+          <li><a (click)="logout()">Cerrar sesión</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  
