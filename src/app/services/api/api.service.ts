@@ -2,28 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable } from 'rxjs';
 import { Product } from '../../interfaces/product.interface';
+import { environment } from '../../../environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  private apiURL = 'https://fakestoreapi.com';
-  private picsumApiUrl = 'https://picsum.photos/v2/list?page=2&limit=100';
+  private apiURL = environment.apiUrl;
+  private picsumApiUrl = environment.imageApi;
 
   constructor(private http: HttpClient) {}
 
   // Obtener todos los productos
   getProductsPaginated(limit: number): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiURL}/products?limit=${limit}`);
-  }
-
-  // Obtener detalles de un producto por su ID
-  getProductById(productId: number): Observable<any> {
-    return this.http.get(`${this.apiURL}/products/${productId}`)
-      .pipe(
-        catchError(this.handleError)
-      );
   }
 
   getAllProducts(): Observable<Product[]> {
@@ -33,14 +26,6 @@ export class ApiService {
   // Crear un nuevo producto
   createProduct(product: any): Observable<any> {
     return this.http.post(`${this.apiURL}/products`, product)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
-
-  // Actualizar un producto por su ID
-  updateProduct(productId: number, product: any): Observable<any> {
-    return this.http.put(`${this.apiURL}/products/${productId}`, product)
       .pipe(
         catchError(this.handleError)
       );

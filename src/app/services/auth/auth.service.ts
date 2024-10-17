@@ -4,12 +4,13 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
 import { User } from '../../interfaces/user.interface';
+import { environment } from '../../../environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private usersUrl = 'assets/users.json';  // Ruta al archivo JSON
+  private usersUrl = environment.usersJSON;  // Ruta al archivo JSON
 
   constructor(
     private http: HttpClient,
@@ -28,7 +29,7 @@ export class AuthService {
         // Buscar el usuario con el username y password correctos
         const user = users.find(user => user.username === username && user.password === password);
         if (user) {
-          // Simular autenticación guardando los datos del usuario en localStorage o sessionStorage
+          // Simular autenticación guardando los datos del usuario en sessionStorage (lo adecuado seria usar JWT Token)
           sessionStorage.setItem('currentUser', JSON.stringify(user));
           return user;
         } else {
